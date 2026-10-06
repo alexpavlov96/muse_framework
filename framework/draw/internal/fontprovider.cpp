@@ -33,6 +33,11 @@ int FontProvider::addSymbolFont(const muse::String& family, const io::path_t& pa
     return 1;
 }
 
+int FontProvider::addSymbolFontFromData(const muse::String& family, const ByteArray& data)
+{
+    return fontsDatabase()->addFontFromData(FontDataKey(Font::FontFamily(family)), data);
+}
+
 double FontProvider::lineSpacing(const muse::draw::Font& f) const
 {
     return fontsEngine()->lineSpacing(f);
